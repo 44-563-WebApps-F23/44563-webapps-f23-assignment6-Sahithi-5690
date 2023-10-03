@@ -14,7 +14,37 @@
     <label for="tip_percentage">Enter the tip percentage</label>
     <input type="button" value="show tip" onclick="tips()">
     <p id="result1">tip result shown here</p>
+
+    <form>
+        <label for="sum">sum</label>
+        <input type="radio" id="sum" name="operation" value="sum" onclick="chooseOp()">
+        <label for="diffrence">diffrence</label>
+        <input type="radio" id="diffrence" name="operation" value="diffrence" onclick="chooseOp()">
+        <label for="product">product</label>
+        <input type="radio" id="product" name="operation" value="product" onclick="chooseOp()">
+        <p id="result"></p>
+    </form>
 </div>
+<script>
+    function chooseOp(){
+        let base_amount= parseFloat(document.getElementById("base_amount").value);
+        let tip_percentage= parseFloat(document.getElementById("tip_percentage").value);
+        var selectedOperation= document.querySelector('input[name="operation"]:checked').value;
+        var result;
+        switch(selectedOperation){
+            case "sum": 
+            result = base_amount + tip_percentage;
+            break;
+            case "diffrence": 
+            result = base_amount - tip_percentage;
+            break;
+            case "product": 
+            result = base_amount * tip_percentage;
+            break;
+        }
+        document.getElementById("result").innerHTML = `${selectedOperation} of ${base_amount} and ${tip_percentage} is ${result}`;
+    }
+</script>
 <script>
     function tips(){
         let base_amount= parseFloat(document.getElementById("base_amount").value);
