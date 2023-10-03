@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tips Page</title>
+  </head>
+<body>
+
+<h2>SaiSahithi shows tip amounts</h2>
+
+<div class="container">
+    <input type="number" id="base_amount" value="50">
+    <label for="base_amount">Enter base ammount</label>
+    <input type="number" id="tip_percentage" value="15">
+    <label for="tip_percentage">Enter the tip percentage</label>
+    <input type="button" value="show tip" onclick="tips()">
+    <p id="result1">tip result shown here</p>
+</div>
+<script>
+    function tips(){
+        let base_amount= parseFloat(document.getElementById("base_amount").value);
+        let tip_percentage= parseFloat(document.getElementById("tip_percentage").value);
+        let myOutput= "";
+        for(var i=0;i<5;i++){
+            var tipamount= (base_amount * (tip_percentage + i * 4) )/100;
+            myOutput+= (tip_percentage + i * 4) + " % is calculated $ " + tipamount + " ; ";
+        }
+        document.getElementById("result1").innerHTML= " tips are " + myOutput;
+    }
+</script>
+
+</body>
+</html> 
