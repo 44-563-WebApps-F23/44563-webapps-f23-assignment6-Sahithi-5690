@@ -16,9 +16,32 @@
     <input type ="checkbox" id="poolpass" name="poolpass" value=true> <br>
 
     <button type="button" onclick="selectCruise()">Select a Cruise</button>
-    <p id="result">  </p>
+    <p id="result">select the cruise</p>
 </form>
 
+
+<form>
+    <div class="form-group">
+        <label for="days">Enter the Number of days</label>
+        <input type="text" class="form-control" id="days" value="days" placeholder="days">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="price">Enter price</label>
+        <input type="text" class="form-control" id="price" placeholder="Enter price">
+    </div>
+    <button type="button" class="btn btn-primary" onclick="updateCruise()">Update the cruise</button>
+</form>
+
+<script>
+    function updateCruise(){
+        days=document.getElementById("days").value;
+        price=document.getElementById("price").value;
+        my_cruise["days"]=days;
+        my_cruise["price"]=price;
+        document.getElementById("result").innerHTML=JSON.stringify(my_cruise)
+    }
+</script>
 
 <script> 
 var my_cruise= {};
